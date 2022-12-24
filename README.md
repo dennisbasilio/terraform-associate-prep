@@ -6,13 +6,13 @@ Even if I do not plan on going for the certification, this should serve as a goo
 
 ## Exam Objectives
 
-1. Understand infrastructure as code (IaC) concepts
+1. [Understand infrastructure as code (IaC) concepts](https://github.com/dennisbasilio/terraform-associate-prep/tree/main/iac_basics#infrastructure-as-code-iac-basics)
    * Explain what IaC is
    * Describe advantages of IaC patterns
-2. Understand the purpose of Terraform (vs other IaC)
+2. [Understand the purpose of Terraform (vs other IaC)](https://github.com/dennisbasilio/terraform-associate-prep/tree/main/iac_basics#infrastructure-as-code-iac-basics)
    * Explain multi-cloud and provider-agnostic benefits
    * Explain the benefits of state
-3. Understand Terraform basics
+3. [Understand Terraform basics](https://github.com/dennisbasilio/terraform-associate-prep/tree/main/terraform_fundamentals#terraform-fundamentals)
    * Install and version Terraform providers
    * Describe plugin-based architecture
    * Write Terraform configuration using multiple providers
