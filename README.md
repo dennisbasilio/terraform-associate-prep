@@ -2,7 +2,7 @@
 
 The information within this repo will be based off of the study guide for the Terraform Associate Certification (003) found [here](https://developer.hashicorp.com/terraform/tutorials/certification-003/associate-study-003).
 
-Even if I do not plan on going for the certification, this should serve as a good foundation for getting into Terraform.
+Even if I do not plan on going for the certification, this should serve as a good foundation for getting into Terraform. The goal is to also make this publicly available for those who may also be learning how to use Terraform.
 
 ## Exam Objectives
 
