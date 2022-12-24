@@ -1,6 +1,6 @@
 # Infrastructure as Code (IaC) Basics
 
-This will focus on exam objectives 1 and 2.
+This section will focus on exam objectives 1 and 2.
 
 ## What is IaC?
 
