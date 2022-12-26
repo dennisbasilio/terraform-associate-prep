@@ -36,22 +36,22 @@ Three stages:
 ### Key Features
 
 * Management
-  * Find Providers for various platforms and services
-  * Can look in [Terraform Registry](https://registry.terraform.io/)
+	* Find Providers for various platforms and services
+	* Can look in [Terraform Registry](https://registry.terraform.io/)
 * Tracking
-  * Track current state of infrastructure in state file
-  * Used to determine what changes need to be made in infrastructure to match configuration
+	* Track current state of infrastructure in state file
+	* Used to determine what changes need to be made in infrastructure to match configuration
 * Automation
-  * Configuration files are declarative describing desired state of environment
-  * Terraform handles underlying logic to get to that state
-  * Builds a resource graph to determine resource dependencies and creates or modifies non-dependent resources in parallel
+	* Configuration files are declarative describing desired state of environment
+	* Terraform handles underlying logic to get to that state
+	* Builds a resource graph to determine resource dependencies and creates or modifies non-dependent resources in parallel
 * Standardization
-  * Uses modules (reusable configuration components) to define collections of infrastructure
-  * Saves time and encourages best practices
+	* Uses modules (reusable configuration components) to define collections of infrastructure
+	* Saves time and encourages best practices
 * Collaboration
-  * Do version controlling of infrastructure
-  * Use Terraform Cloud to manage workflows
-    * Provides secure access to shared state and secret data, role-based access controls, a private registry for sharing both modules and providers, and more
+	* Do version controlling of infrastructure
+	* Use Terraform Cloud to manage workflows
+		* Provides secure access to shared state and secret data, role-based access controls, a private registry for sharing both modules and providers, and more
 
 ### Use Cases
 
