@@ -5,7 +5,6 @@ The information within this repo will be based off of the study guide for the Te
 Even if I do not plan on going for the certification, this should serve as a good foundation for getting into Terraform. The goal is to also make this publicly available for those who may also be learning how to use Terraform.
 
 ## Exam Objectives
-
 1. [Understand infrastructure as code (IaC) concepts](https://github.com/dennisbasilio/terraform-associate-prep/tree/main/iac_basics#infrastructure-as-code-iac-basics)
 	* Explain what IaC is
 	* Describe advantages of IaC patterns

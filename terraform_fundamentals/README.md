@@ -3,17 +3,14 @@
 This section will focus on exam objective 3.
 
 ## State
-
 Required for Terraform to function. 
 
 ### Mapping
-
 It is used to map configurations to resources. 
 
 It also expects that each remote object is bound to only one resource instance to avoid ambiguous configurations.
 
 ### Metadata
-
 Includes various information showing the relationship between various components such as resource dependencies.
 
 A copy of the most recent dependencies is maintained within the state. This is important especially in deleting a resource because of the dependency order. A resource may need to be taken down a certain way, and if a configuration is deleted, the most recent copy is in the state.
@@ -21,7 +18,6 @@ A copy of the most recent dependencies is maintained within the state. This is i
 Another similar metadata includes a pointer to the provider configuration that was most recently used (especially helpful where multiple aliased providers are present).
 
 ### Performance
-
 Stores a cache of the attribute values for all resources. Completely optional.
 
 Default behavior for when `terraform plan` and `terraform apply` is ran is to sync all resources in your state. This is slow in larger environements.
@@ -29,7 +25,6 @@ Default behavior for when `terraform plan` and `terraform apply` is ran is to sy
 The cached state can be used as a source of truth.
 
 ### Syncing
-
 States are stored locally in the current working directory where Terraform is ran.
 
 In larger environments, a remote state is recommended, especially for remote locking to prevent multiple runnings of Terraform.
@@ -37,11 +32,9 @@ In larger environments, a remote state is recommended, especially for remote loc
 Ensures that Terraform runs with the most recent updated state.
 
 ## Terraform Settings
-
 The `terraform` configuration block type contains configurations for Terraform itself.
 
 ### Terraform Block Syntax
-
 ```
 terraform {
   # ...
@@ -52,7 +45,6 @@ terraform {
 The following are options supported in the `terraform` block.
 
 #### Configuring Terraform Cloud
-
 The `cloud` block configures Terraform Cloud and enables its CLI-driven run workflow. Only needed when you want to use the CLI to interact with Terraform Cloud.
 ```
 terraform {
@@ -68,7 +60,6 @@ terraform {
 * Cannot use CLI integration and state backend in the same configuration since they are mutually exclusive. That because Terraform Cloud already manages state
 
 #### Configuring Terraform Backend
-
 The `backend` block configures which state Terraform should use.
 ```
 terraform {
@@ -114,7 +105,6 @@ terraform {
 	* Unconfiguring a backend will ask to migrate current state down to normal local state
 
 #### Specifying a Required Terraform Version
-
 The `required_version` setting accepts a version constraint string.
 
 Specifies which versions of Terraform to use with your configuration. If the version doesn't match, Terraform produces an error and exits. Only applies to the version of Terraform CLI.
@@ -132,7 +122,6 @@ version = ">= 1.2.0, < 2.0.0"
 Child modules can specify their own version number and must all be satisfied.
 
 #### Specifying Provider Requirements
-
 The `required_providers` block specifies all of the required providers by the current module.
 
 Maps local provider name to source address and version constraint:
@@ -149,7 +138,6 @@ terraform {
 * aws in this case is the local name
 
 #### Experimental Language Features
-
 Can test new language features by opting in. Can be enabled on a per-module basis by using the `experiments` setting.
 ```
 terraform {
@@ -159,7 +147,6 @@ terraform {
 * The above opts in to the `example` experiment 
 
 #### Passing Metadata to Providers
-
 The `provider_meta` block allows the provider to receive module-specific information.
 
 ## Providers
@@ -237,13 +224,11 @@ module "aws_vpc" {
 
 
 ## Plugins
-
 Terraform is built on a plugin-based architecture.
 
 Two main components of Terraform: Terraform Core and Terraform Plugins.
 
 ### Terraform Core
-
 Uses RPC to communicate with Terraform Plugins. Offers multiple ways to discover and load plugins to use.
 
 Written in Go and is open source and found [here](https://github.com/hashicorp/terraform).
@@ -256,7 +241,6 @@ This is the CLI tool `terraform` primarily used for:
 * Communication with plugins over RPC
 
 ### Terraform Plugins
-
 Exposes an implementation for a specific service like AWS or provider like bash. Written in Go and invoked by Terraform Core via RPC. All Providers and Provisioners are Plugins. The primary responsibility for both are:
 * Provider Plugins
 	* Initialization of any included libraries used to make API calls
@@ -266,7 +250,6 @@ Exposes an implementation for a specific service like AWS or provider like bash.
 	* Executing commands or scripts on the designated Resource after creation or on destruction
 
 ## Dependency Lock File
-
 Version constraints determine which dependencies are potentially compatible. After selecting a version for each dependency, Terraform remembers these decisions in the Dependency Lock File so it makes the same decisions in the future.
 
 If there is no existing recorded selection, Terraform will select the newest available that fits within the version constraints and then updates the lock file to include that selection. 
@@ -276,11 +259,9 @@ If a selection already exists, Terraform will always reuse that one even if a ne
 Only tracks provider dependencies. Version selections for remote modules are not remembered, so Terraform always uses the newest available version within the specified version constraints.
 
 ### Location
-
 Located in the `.terraform` directory in the working directory, the file is called `.terraform.lock.hcl`. Automatically created and updated when `terraform init` is ran.
 
 ### Checksum Verification
-
 Intended to represent a trust-on-first-use approach. Terraform will raise an error when it encounters a non-matching package for the same provider version. Two general cases:
 * When a provider is installed from an origin repository, Terraform treats all signed checksums as valid as long as one of them is valid. This means that the lock file will include the checksums for both the package you installed for your current platform AND any other packages available for other platforms
 	* `terraform init` includes the fingerprint of the key that signed the checksums
@@ -288,7 +269,6 @@ Intended to represent a trust-on-first-use approach. Terraform will raise an err
 	* Can be avoided by pre-populating checksums for other platforms in your lock file using the `terraform providers lock` command.
 
 ### Version Control
-
 The Dependency Lock File should be included as part of version control to track changes in the different depency versions. Various scenarios where your version control system shows a change would include:
 * Dependency on a new provider
 	* Shows the version, constraints, and hashes
